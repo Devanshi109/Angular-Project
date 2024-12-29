@@ -10,7 +10,7 @@ export class ItuneServiceService {
   constructor(private http: HttpClient) {}
 
   searchAlbums(artistName: string): Observable<any> {
-    const url = `${this.apiUrl}?term=${encodeURIComponent(artistName)}&media=music&entity=album&attribute=artistTerm&limit=200`;
+    const url = `${this.apiUrl}?term=${artistName}&media=music&entity=album&attribute=artistTerm&limit=200`;
     return this.http.get<any>(url);
   }
 }
