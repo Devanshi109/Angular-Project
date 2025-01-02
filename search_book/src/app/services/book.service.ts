@@ -52,10 +52,6 @@ export class BookService {
     );
   }
 
-  getBookUpdates(): Observable<ExpectBook[]> {
-    return this.bookSubject$.asObservable();
-  }
-
   addToWishList(book: ExpectBook) {
     if (!this.wishList.includes(book.bookName)) {
       this.wishList.push(book.bookName);

@@ -14,11 +14,7 @@ export class SearchComponent {
   books: ExpectBook[] = [];
   errorMessage: string = '';
 
-  constructor(private bookService: BookService) {
-    this.bookService.getBookUpdates().subscribe((books) => {
-      this.books = books;
-    });
-  }
+  constructor(private bookService: BookService) {}
 
   onSearch() {
 
