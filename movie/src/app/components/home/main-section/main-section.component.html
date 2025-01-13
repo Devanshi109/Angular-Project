@@ -1,0 +1,16 @@
+<span>
+    <h1>
+        Unlimited Movies, TV Shows and More
+    </h1>
+    <h4>
+        Starts at $6.99, Cancel at anytime
+    </h4>
+    <h5>
+        Ready to watch? Enter your email to create or restart your membership. 
+    </h5>
+</span>
+
+<form [formGroup]="emailForm">
+    <input type="text" placeholder="Email Address" class="input" formControlName="email">
+    <button (click)="navigateToSignUp()">Get Started</button>
+</form>
