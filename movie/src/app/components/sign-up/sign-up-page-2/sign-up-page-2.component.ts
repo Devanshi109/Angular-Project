@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up-page-2',
@@ -8,11 +9,25 @@ import { Router } from '@angular/router';
   templateUrl: './sign-up-page-2.component.html',
   styleUrl: './sign-up-page-2.component.css'
 })
-export class SignUpPage2Component {
+export class SignUpPage2Component{
+
+  signup2form!: FormGroup;
   
-  constructor(private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
+
+    ngOnInit(): void {
+      this.signup2form = this.fb.group({
+        username: ['', [Validators.required]],
+        tmdb: ['', [Validators.required]],
+      });
+    }
+ 
 
   navigateToSignUp3() {
-    this.router.navigate(['/signup-step3']);
+    if (this.signup2form.valid) {
+      this.router.navigate(['/signup-step3']);
+    } else {
+      console.log('not valid');
+    }
   }
 }
