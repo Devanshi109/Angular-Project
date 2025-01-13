@@ -70,21 +70,3 @@ export class MovieDetailsComponent implements OnInit {
 }
 
 
-
-
-// movieDetails: any;
-
-// constructor(
-//   private route: ActivatedRoute,
-//   private movieService: MovieService
-// ) {}
-
-// ngOnInit(): void {
-//   const movieId = this.route.snapshot.paramMap.get('id');
-//   if (movieId) {
-//     this.movieService.fetchMovieDetails(+movieId).subscribe(details => {
-//       this.movieDetails = details;
-//     });
-//   }
-// }
-
