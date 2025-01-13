@@ -16,6 +16,11 @@
       <label for="password"></label>
       <input type="password" id="password" placeholder="Enter your password" formControlName="password" class="user-input" autocomplete="new-password">
     
+      <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="error">
+        <small *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters.</small>
+      </div>
+      
       <p class="blue">Forgot your password?</p>
     
       <button type="button" (click)="navigateToSignUp2()">Next</button>

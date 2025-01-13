@@ -41,3 +41,7 @@ button {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.error{
+  color: red;
+}
