@@ -1,6 +1,12 @@
+<div class="movielist">
+  <app-header [buttonName]="'Logout'"></app-header>
+
 <div class="movie-list">
     <div *ngFor="let movie of movies">
       <app-movie-item [movie]="movie"></app-movie-item>
     </div>
   </div>
+</div>
+
+
   
