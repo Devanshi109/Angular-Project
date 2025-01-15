@@ -8,6 +8,7 @@ import { DirectoryUsersComponent } from './components/directory-users/directory-
 import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     DirectoryUsersComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
