@@ -109,3 +109,8 @@
   width: 100px; 
   height: 100px; 
 }
+
+app-header {
+  z-index: 2;
+  position: relative;
+}

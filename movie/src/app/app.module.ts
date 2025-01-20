@@ -10,9 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-
 import { MovieService } from './core/services/movie.service';
 import { MoviePipe } from './shared/pipe/movie.pipe';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
@@ -25,6 +23,7 @@ import { MainSectionComponent } from './components/home/main-section/main-sectio
 import { LoginComponent } from './components/login/login.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     MovieListComponent,
     MovieItemComponent,
     MoviePipe,
-    HeaderComponent,
     HomePageComponent,
     DivisionComponent,
     MainSectionComponent,
@@ -52,7 +50,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     YouTubePlayerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    
+    CoreModule
   ],
   providers: [
     MovieService

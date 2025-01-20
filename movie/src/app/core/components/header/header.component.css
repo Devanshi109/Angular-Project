@@ -1,6 +1,14 @@
-div {
+.nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.nav-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
 }
 
 .logo {
@@ -19,9 +27,8 @@ div {
   background-color: red;
   border: none;
   border-radius: 7px;
-  width: 6%;
   font-weight: 500;
-  padding: 0;
+  padding: 10px;
   font-size: 0.875rem;
   height: 35px;
   margin-right: 50px;
@@ -30,4 +37,8 @@ div {
 .sign-in:hover {
   cursor: pointer;
   background-color: rgb(215, 19, 19);
+}
+
+.home{
+  cursor: pointer;
 }

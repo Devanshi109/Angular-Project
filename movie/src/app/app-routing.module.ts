@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'signup-step1', component: SignUpPage1Component },
   { path: 'signup-step2', component: SignUpPage2Component },
   { path: 'signup-step3', component: SignUpPage3Component },
-  { path: 'movies', loadChildren: () => import('./components/movie-list/movie-list.module').then(m => m.MovieListModule) },
+  { path: 'movies', loadChildren: () => import('./components/movie-list/movie-list.module').then(m => m.MovieListModule)},
 ];
 
 @NgModule({
