@@ -53,29 +53,28 @@
 
     <div class="body">
       <div class="pricing-container">
-
         <div class="header-row">
           <div class="header-title"></div>
-          <div class="pricing-box" (click)="selectPlan('Basic')">
+          <div class="pricing-box" (click)="selectPlan('USER')">
             Basic
           </div>
-          <div class="pricing-box" (click)="selectPlan('Standard')">
+          <div class="pricing-box" (click)="selectPlan('SUPERUSER')">
             Standard
           </div>
-          <div class="pricing-box" (click)="selectPlan('Premium')">
+          <div class="pricing-box" (click)="selectPlan('ADMIN')">
             Premium
           </div>
         </div>
 
         <div class="data-row" *ngFor="let row of rowData">
           <div class="row-title">{{ row.title }}</div>
-          <div class="row-data" [ngClass]="{ 'selected-column': selectedPlan === 'Basic' }">
+          <div class="row-data" [ngClass]="{ 'selected-column': selectedColumn === 'USER' }">
             {{ row.basic }}
           </div>
-          <div class="row-data" [ngClass]="{ 'selected-column': selectedPlan === 'Standard' }">
+          <div class="row-data" [ngClass]="{ 'selected-column': selectedColumn === 'SUPERUSER' }">
             {{ row.standard }}
           </div>
-          <div class="row-data" [ngClass]="{ 'selected-column': selectedPlan === 'Premium' }">
+          <div class="row-data" [ngClass]="{ 'selected-column': selectedColumn === 'ADMIN' }">
             {{ row.premium }}
           </div>
         </div>

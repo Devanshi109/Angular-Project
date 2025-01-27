@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Movie } from '../interfaces/movie';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +13,8 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  fetchMovies(): Observable<Movie[]> {
-    const url = `${this.apiUrl}?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=1`;
+  fetchMovies(page: number = 1): Observable<Movie[]> {
+    const url = `${this.apiUrl}?api_key=${this.apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`;
   
     return this.http.get<{ results: Movie[] }>(url).pipe(
       map((response) => response.results)

@@ -29,7 +29,7 @@ export class SignUpPage2Component {
       const { username, tmdb } = this.signup2form.value;
       this.authService.addSignupData('username', username);
       this.authService.addSignupData('tmdb', tmdb);
-      this.router.navigate(['/signup-step3']);
+      this.router.navigate(['/signup/step3']);
     } else {
       alert('Please complete the form with valid data.');
     }

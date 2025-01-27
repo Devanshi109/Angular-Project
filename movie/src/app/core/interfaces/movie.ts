@@ -29,7 +29,22 @@ export interface SignupData {
   plan?: string;
 }
 
-// export interface LoginData {
-//   email: string;
-//   password: string;
-// }
+export interface AuthDto {
+  accessToken: string;
+  role: UserRole;
+}
+
+export enum UserRole {
+  USER = 'USER',
+  SUPERUSER = 'SUPERUSER',
+  ADMIN = 'ADMIN',
+}
+
+export class AppUserAuth {
+  id?: string;
+  username?: string;
+  email?: string;
+  role?: UserRole = UserRole.USER;
+  jwtToken?: string;
+}
+

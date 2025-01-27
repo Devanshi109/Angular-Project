@@ -16,57 +16,49 @@ export class MovieDetailsComponent implements OnInit {
   movieDetails: any;
   additionalPosters: any[] = [];
   cast: any[] = [];
-  genreList: string = ''; 
+  genreList: string = '';
 
-  trailers: any[] = []; 
+  trailers: any[] = [];
   currentTrailerIndex: number = 0;
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    const movieId = this.route.snapshot.paramMap.get('id');
-    if (movieId) {
-    
-      this.movieService.fetchMovieDetails(+movieId).subscribe(details => {
-        this.movieDetails = details;
 
-        if (details.genres && details.genres.length > 0) {
-          this.genreList = details.genres.map((genre: { name: any; }) => genre.name).join(', ');
-        }
-      });
+    const resolvedData = this.route.snapshot.data['movieDetails'];
 
-      this.movieService.fetchMovieImages(+movieId).subscribe(images => {
-        this.additionalPosters = images.posters || [];
-      });
+    if (resolvedData) {
+      this.movieDetails = resolvedData;
 
-      this.movieService.fetchMovieCast(+movieId).subscribe(credits => {
-        this.cast = credits.cast || [];
-      });
+      if (resolvedData.genres && resolvedData.genres.length > 0) {
+        this.genreList = resolvedData.genres.map((genre: { name: string }) => genre.name).join(', ');
+      }
+
+      this.additionalPosters = resolvedData.images?.posters || [];
+
+      this.cast = resolvedData.credits?.cast || [];
+
+      this.trailers = resolvedData.trailers?.results || [];
     }
+
   }
 
   openTrailerDialog(): void {
-    const movieId = this.route.snapshot.paramMap.get('id');
-    if (movieId) {
 
-      this.movieService.fetchMovieTrailers(+movieId).subscribe(trailers => {
-        if (trailers.results && trailers.results.length > 0) {
-          this.dialog.open(YoutubePlayerComponent, {
-            width: '5000px',
-            data: { trailers: trailers.results } 
-          });
-        } else {
-          alert('No trailers available for this movie.');
-        }
+    if (this.trailers.length > 0) {
+      this.dialog.open(YoutubePlayerComponent, {
+        width: '5000px',
+        data: { trailers: this.trailers }
       });
+      console.log('Opening trailer dialog:', this.trailers);
+    } else {
+      alert('No trailers available for this movie.');
     }
   }
-
-
 }
+
 
 

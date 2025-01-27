@@ -39,7 +39,7 @@ export class SignUpPage1Component implements OnInit {
       const { email, password } = this.signUpForm.value;
       this.authService.addSignupData('email', email);
       this.authService.addSignupData('password', password);
-      this.router.navigate(['/signup-step2']);
+      this.router.navigate(['/signup/step2']);
     } else {
       alert('Please complete the form with valid data.');
     }
