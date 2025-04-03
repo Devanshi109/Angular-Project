@@ -12,7 +12,7 @@ export class AppComponent {
   redo_arr: number[] = [];
   history: string[] = [];
 
-  countChange(value: number): void {
+  countChange(value: number) {
     const lastCount = this.count;
     this.count += value;
     
