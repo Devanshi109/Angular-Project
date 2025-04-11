@@ -1,0 +1,71 @@
+.todo-container {
+  display: block;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.user_input {
+  padding: 10px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addbtn {
+  background-color: #007bff;
+  color: white;
+}
+
+.logoutbtn {
+  background-color: #dc3545;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.togglebtn {
+  background-color: #28a745;
+  color: white;
+}
+
+.deletebtn {
+  background-color: #dc3545;
+  color: white;
+}
+
+li span {
+  flex-grow: 1;
+}

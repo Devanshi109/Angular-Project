@@ -1,0 +1,19 @@
+<div class="todo-container">
+  <button (click)="logout()" class="logoutbtn">Logout</button>
+  <h2>Todo List (User: {{ loginService.authUser() }})</h2>
+  <input type="text" [(ngModel)]="taskInput" placeholder="New task" class="user_input" />
+  <button (click)="addTask()" class="addbtn">Add</button>
+  <ul>
+    @for (task of tasks(); track task.id) {
+    <li>
+      <span [style.textDecoration]="task.completed ? 'line-through' : 'none'">
+        {{ task.title }}
+      </span>
+      <button (click)="toggle(task)" class="togglebtn">
+        {{ task.completed ? "Completed" : "Mark as Done" }}
+      </button>
+      <button (click)="removeTask(task.id)" class="deletebtn">Delete</button>
+    </li>
+    }
+  </ul>
+</div>
