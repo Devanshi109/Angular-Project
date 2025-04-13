@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -9,15 +9,10 @@ import { BookService } from '../services/book.service';
   styleUrl: './wish-list.component.css'
 })
 export class WishListComponent {
-  wishlist: string[] = [];
+  wishlist = computed(() => this.bookService.wishListSignal());
+  private bookService = inject(BookService);
 
-  constructor(private bookService: BookService) {}
-
-  ngOnInit() {
-    this.bookService.wishListSubject$.subscribe(
-      (wishlist) => (this.wishlist = wishlist)
-    );
-  }
+  constructor() {}
 
   removeFromWishlist(book: string) {
     this.bookService.removeFromWishlist(book);

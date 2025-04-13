@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { ExpectBook } from '../services/interfaces/book-interface';
 
@@ -13,8 +13,9 @@ export class SearchComponent {
   bookName: string = '';
   books: ExpectBook[] = [];
   errorMessage: string = '';
+  private bookService = inject(BookService);
 
-  constructor(private bookService: BookService) {}
+  constructor() {}
 
   onSearch() {
 

@@ -9,6 +9,8 @@ import { SearchComponent } from './search/search.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     BookItemComponent,
     BooklistComponent,
     SearchComponent,
-    WishListComponent
+    WishListComponent,
+    WishlistPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

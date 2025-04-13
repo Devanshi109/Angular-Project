@@ -1,7 +1,6 @@
-<div class="container">
-  <app-search></app-search>
-  <div class="content">
-    <app-booklist></app-booklist>
-    <app-wish-list></app-wish-list>
-  </div>
-</div>
+<nav class="navbar">
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/wishlist" routerLinkActive="active">Show Wishlist</a>
+</nav>
+
+<router-outlet></router-outlet>

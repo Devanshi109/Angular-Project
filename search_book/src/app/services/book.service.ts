@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of, Subject, tap } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { BehaviorSubject, catchError, map, Observable, of, Subject, tap } from 'rxjs';
 import { BookRes, ExpectBook, ItemsEntity } from './interfaces/book-interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,9 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookService {
   private baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
-  bookSubject$ = new Subject<ExpectBook[]>();
-  wishList: string[] = [];
-  wishListSubject$ = new Subject<string[]>();
+  bookSignal = signal<ExpectBook[]>([]);
+  wishListSignal = signal<string[]>([]); 
 
   constructor(private http: HttpClient) { }
 
@@ -41,26 +40,26 @@ export class BookService {
             }) || []
         );
       }),
-      tap((books: ExpectBook[]) => {
-        this.bookSubject$.next(books);
-      }),
       catchError((err) => {
         console.error(err);
-        this.bookSubject$.next([]);
+        this.bookSignal.set([]);
         return of([]);
+      }),
+      map((books) => {
+        this.bookSignal.set(books);
+        return books;
       })
     );
   }
 
   addToWishList(book: ExpectBook) {
-    if (!this.wishList.includes(book.bookName)) {
-      this.wishList.push(book.bookName);
-      this.wishListSubject$.next(this.wishList);
+    if (!this.wishListSignal().includes(book.bookName)) {
+      this.wishListSignal.update((list) => [...list, book.bookName]);
     }
   }
 
   removeFromWishlist(book: string) {
-    this.wishList = this.wishList.filter((b) => b !== book);
-    this.wishListSubject$.next(this.wishList);
+    this.wishListSignal.update((list) => list.filter((b) => b !== book));
   }
+
 }

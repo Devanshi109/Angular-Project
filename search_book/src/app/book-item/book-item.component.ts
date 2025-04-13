@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ExpectBook } from '../services/interfaces/book-interface';
 import { BookService } from '../services/book.service';
 
@@ -11,8 +11,9 @@ import { BookService } from '../services/book.service';
 })
 export class BookItemComponent {
   @Input() book!: ExpectBook;
+  private bookService = inject(BookService);
 
-  constructor(private bookService: BookService) {}
+  constructor() {}
 
   addToWishlist() {
     this.bookService.addToWishList(this.book);
