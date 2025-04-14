@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { BookService } from '../services/book.service';
   styleUrl: './wish-list.component.css'
 })
 export class WishListComponent {
+  @Input() showRemoveButton: boolean = true;
   wishlist = computed(() => this.bookService.wishListSignal());
   private bookService = inject(BookService);
 

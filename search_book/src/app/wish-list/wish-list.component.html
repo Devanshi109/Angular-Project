@@ -3,7 +3,7 @@
     <ul>
         <li *ngFor="let book of wishlist()">
             <span>{{ book }}</span>
-            <button (click)="removeFromWishlist(book)">Remove</button>
+            <button *ngIf="showRemoveButton" (click)="removeFromWishlist(book)">Remove</button>
         </li>
     </ul>
 </div>
