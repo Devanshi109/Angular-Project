@@ -1,0 +1,15 @@
+<h1>Memory Game</h1>
+
+<div class="grid">
+  @for (card of cards(); track card.id) {
+    <div class="card" 
+         [class.flipped]="card.isFlipped || card.isMatched" 
+         (click)="flip(card)">
+      {{ (card.isFlipped || card.isMatched) ? card.emoji : '' }}
+    </div>
+  }
+</div>
+
+@if (isGameOver()) {
+  <button (click)="game()">Play Again</button>
+}
